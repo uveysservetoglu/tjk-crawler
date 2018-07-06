@@ -16,16 +16,21 @@ class TjkCrawlCommand extends ContainerAwareCommand
         $this
             ->setName('crawl:tjk')
             ->setDescription('...')
-            ->addArgument('argument', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option', null, InputOption::VALUE_NONE, 'Option description')
+            ->addOption(
+                'type',
+                't',
+                InputOption::VALUE_OPTIONAL,
+                'Specify which operation type to be crawled',
+                'Bursa'
+            );
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output){
-
+        $type = $input->getOption('type');
         $class = '\\AppBundle\\Crawlers\\RaceSchedule';
         $crawler = new $class($this->getContainer()->get("kernel"));
-        $crawler->crawl();
+        $crawler->crawl($type);
 
         $output->writeln('Command result.');
     }

@@ -14,10 +14,10 @@ use Symfony\Component\Validator\Constraints\DateTime;
 
 class RaceSchedule extends BaseCrawler
 {
-    public function crawl(){
+    public function crawl($city){
 
         $date = date("d/m/Y");
-        self::getRace($date, "İstanbul");
+        self::getRace($date, $city);
     }
 
     private function getRace($date,$city){
