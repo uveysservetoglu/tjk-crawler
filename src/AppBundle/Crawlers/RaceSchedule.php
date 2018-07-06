@@ -8,10 +8,10 @@
 
 namespace AppBundle\Crawlers;
 
-class RaceSchedule
+class RaceSchedule extends BaseCrawler
 {
-    public function crawl(){
+    private function crawl(){
 
-        echo "[OK]".PHP_EOL;
+
     }
 }
