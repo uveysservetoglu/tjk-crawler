@@ -7,13 +7,8 @@
  */
 namespace AppBundle\Crawlers;
 
-
-use AppBundle\Entity\Media;
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\Filesystem\Filesystem;
-use GuzzleHttp\Client as GuzzleClient;
-use Symfony\Component\HttpFoundation\File\File;
 class BaseCrawler
 {
     public $kernel;
