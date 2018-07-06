@@ -2,6 +2,7 @@
 
 namespace AppBundle\Command;
 
+use AppBundle\AppBundle;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -10,8 +11,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class TjkCrawlCommand extends ContainerAwareCommand
 {
-    protected function configure()
-    {
+    protected function configure(){
+
         $this
             ->setName('crawl:tjk')
             ->setDescription('...')
@@ -20,13 +21,11 @@ class TjkCrawlCommand extends ContainerAwareCommand
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $argument = $input->getArgument('argument');
+    protected function execute(InputInterface $input, OutputInterface $output){
 
-        if ($input->getOption('option')) {
-            // ...
-        }
+        $class = '\\AppBundle\\Crawlers\\RaceSchedule';
+        $crawler = new $class($this->getContainer()->get("kernel"));
+        $crawler->crawl();
 
         $output->writeln('Command result.');
     }
