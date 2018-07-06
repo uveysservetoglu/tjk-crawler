@@ -16,7 +16,7 @@ Step 2 : Entity Created
     php bin/console doctrine:schema:update --force
 ---
 
-Step 4 : Crawler Run
+Step 3 : Crawler Run
 ---
     php bin/console crawl:tjk -t cityName
 ---
